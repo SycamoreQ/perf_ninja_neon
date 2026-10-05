@@ -1,0 +1,163 @@
+Iterations:        1000
+Instructions:      11000
+Total Cycles:      1864
+Total uOps:        12000
+
+Dispatch Width:    8
+uOps Per Cycle:    6.44
+IPC:               5.90
+Block RThroughput: 1.8
+
+
+Cycles with backend pressure increase [ 47.42% ]
+Throughput Bottlenecks: 
+  Resource Pressure       [ 39.27% ]
+  - V1UnitL2  [ 16.20% ]
+  - V1UnitL01  [ 16.20% ]
+  - V1UnitM0  [ 30.58% ]
+  - V1UnitM1  [ 30.58% ]
+  - V1UnitS  [ 30.58% ]
+  Data Dependencies:      [ 39.38% ]
+  - Register Dependencies [ 39.38% ]
+  - Memory Dependencies   [ 0.00% ]
+
+Critical sequence based on the simulation:
+
+              Instruction                                 Dependency Information
+ +----< 6.    ldrb	w0, [x17], #4
+ |
+ |    < loop carried > 
+ |
+ +----> 0.    ldurb	w0, [x17, #-3]                    ## REGISTER dependency:  x17
+ |      1.    add	w15, w15, w0
+ |      2.    ldurb	w0, [x17, #-2]
+ |      3.    add	w10, w10, w0
+ +----> 4.    ldurb	w0, [x17, #-1]                    ## RESOURCE interference:  V1UnitL01 [ probability: 71% ]
+ +----> 5.    add	w13, w13, w0                      ## REGISTER dependency:  w0
+ +----> 6.    ldrb	w0, [x17], #4                     ## RESOURCE interference:  V1UnitS [ probability: 42% ]
+ +----> 7.    add	w14, w14, w0                      ## REGISTER dependency:  w0
+ +----> 8.    add	x12, x12, #4                      ## RESOURCE interference:  V1UnitM1 [ probability: 14% ]
+ +----> 9.    cmp	x16, x12                          ## REGISTER dependency:  x12
+ +----> 10.   b.ne	loop                              ## REGISTER dependency:  nzcv
+
+
+Instruction Info:
+[1]: #uOps
+[2]: Latency
+[3]: RThroughput
+[4]: MayLoad
+[5]: MayStore
+[6]: HasSideEffects (U)
+
+[1]    [2]    [3]    [4]    [5]    [6]    Instructions:
+ 1      4     0.33    *                   ldurb	w0, [x17, #-3]
+ 1      1     0.25                        add	w15, w15, w0
+ 1      4     0.33    *                   ldurb	w0, [x17, #-2]
+ 1      1     0.25                        add	w10, w10, w0
+ 1      4     0.33    *                   ldurb	w0, [x17, #-1]
+ 1      1     0.25                        add	w13, w13, w0
+ 2      4     0.33    *                   ldrb	w0, [x17], #4
+ 1      1     0.25                        add	w14, w14, w0
+ 1      1     0.25                        add	x12, x12, #4
+ 1      1     0.33                        cmp	x16, x12
+ 1      1     0.50                        b.ne	loop
+
+
+Resources:
+[0.0] - V1UnitB
+[0.1] - V1UnitB
+[1.0] - V1UnitD
+[1.1] - V1UnitD
+[2.0] - V1UnitFlg
+[2.1] - V1UnitFlg
+[2.2] - V1UnitFlg
+[3]   - V1UnitL2
+[4.0] - V1UnitL01
+[4.1] - V1UnitL01
+[5]   - V1UnitM0
+[6]   - V1UnitM1
+[7.0] - V1UnitS
+[7.1] - V1UnitS
+[8]   - V1UnitV0
+[9]   - V1UnitV1
+[10]  - V1UnitV2
+[11]  - V1UnitV3
+
+
+Resource pressure per iteration:
+[0.0]  [0.1]  [1.0]  [1.1]  [2.0]  [2.1]  [2.2]  [3]    [4.0]  [4.1]  [5]    [6]    [7.0]  [7.1]  [8]    [9]    [10]   [11]   
+0.50   0.50    -      -     0.33   0.33   0.33   1.14   1.43   1.43   1.71   1.71   1.79   1.79    -      -      -      -     
+
+Resource pressure by instruction:
+[0.0]  [0.1]  [1.0]  [1.1]  [2.0]  [2.1]  [2.2]  [3]    [4.0]  [4.1]  [5]    [6]    [7.0]  [7.1]  [8]    [9]    [10]   [11]   Instructions:
+ -      -      -      -      -      -      -     0.14   0.43   0.43    -      -      -      -      -      -      -      -     ldurb	w0, [x17, #-3]
+ -      -      -      -      -      -      -      -      -      -     0.14    -     0.43   0.43    -      -      -      -     add	w15, w15, w0
+ -      -      -      -      -      -      -     0.28   0.43   0.29    -      -      -      -      -      -      -      -     ldurb	w0, [x17, #-2]
+ -      -      -      -      -      -      -      -      -      -      -     0.43   0.29   0.29    -      -      -      -     add	w10, w10, w0
+ -      -      -      -      -      -      -     0.29   0.28   0.43    -      -      -      -      -      -      -      -     ldurb	w0, [x17, #-1]
+ -      -      -      -      -      -      -      -      -      -      -      -     0.50   0.50    -      -      -      -     add	w13, w13, w0
+ -      -      -      -      -      -      -     0.43   0.29   0.29   0.57   0.14   0.14   0.14    -      -      -      -     ldrb	w0, [x17], #4
+ -      -      -      -      -      -      -      -      -      -     0.14   0.43   0.22   0.21    -      -      -      -     add	w14, w14, w0
+ -      -      -      -      -      -      -      -      -      -     0.43   0.43   0.07   0.07    -      -      -      -     add	x12, x12, #4
+ -      -      -      -     0.33   0.33   0.33    -      -      -     0.43   0.29   0.14   0.14    -      -      -      -     cmp	x16, x12
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -     b.ne	loop
+
+
+Timeline view:
+                    012
+Index     0123456789   
+
+[0,0]     DeeeeER   . .   ldurb	w0, [x17, #-3]
+[0,1]     D====eER  . .   add	w15, w15, w0
+[0,2]     DeeeeE-R  . .   ldurb	w0, [x17, #-2]
+[0,3]     D====eER  . .   add	w10, w10, w0
+[0,4]     DeeeeE-R  . .   ldurb	w0, [x17, #-1]
+[0,5]     D====eER  . .   add	w13, w13, w0
+[0,6]     D=eeeeER  . .   ldrb	w0, [x17], #4
+[0,7]     .D====eER . .   add	w14, w14, w0
+[0,8]     .DeE----R . .   add	x12, x12, #4
+[0,9]     .D=eE---R . .   cmp	x16, x12
+[0,10]    .D==eE--R . .   b.ne	loop
+[1,0]     .D=eeeeER . .   ldurb	w0, [x17, #-3]
+[1,1]     .D=====eER. .   add	w15, w15, w0
+[1,2]     .D=eeeeE-R. .   ldurb	w0, [x17, #-2]
+[1,3]     .D=====eER. .   add	w10, w10, w0
+[1,4]     . DeeeeE-R. .   ldurb	w0, [x17, #-1]
+[1,5]     . D====eER. .   add	w13, w13, w0
+[1,6]     . D=eeeeER. .   ldrb	w0, [x17], #4
+[1,7]     . D=====eER .   add	w14, w14, w0
+[1,8]     . DeE-----R .   add	x12, x12, #4
+[1,9]     . D=eE----R .   cmp	x16, x12
+[1,10]    . D==eE---R .   b.ne	loop
+[2,0]     .  D=eeeeER .   ldurb	w0, [x17, #-3]
+[2,1]     .  D=====eER.   add	w15, w15, w0
+[2,2]     .  D=eeeeE-R.   ldurb	w0, [x17, #-2]
+[2,3]     .  D=====eER.   add	w10, w10, w0
+[2,4]     .  D=eeeeE-R.   ldurb	w0, [x17, #-1]
+[2,5]     .  D=====eER.   add	w13, w13, w0
+[2,6]     .  D==eeeeER.   ldrb	w0, [x17], #4
+[2,7]     .   D=====eER   add	w14, w14, w0
+[2,8]     .   DeE-----R   add	x12, x12, #4
+[2,9]     .   D=eE----R   cmp	x16, x12
+[2,10]    .   D==eE---R   b.ne	loop
+
+
+Average Wait times (based on the timeline view):
+[0]: Executions
+[1]: Average time spent waiting in a scheduler's queue
+[2]: Average time spent waiting in a scheduler's queue while ready
+[3]: Average time elapsed from WB until retire stage
+
+      [0]    [1]    [2]    [3]
+0.     3     1.7    0.3    0.0       ldurb	w0, [x17, #-3]
+1.     3     5.7    0.0    0.0       add	w15, w15, w0
+2.     3     1.7    0.3    1.0       ldurb	w0, [x17, #-2]
+3.     3     5.7    0.0    0.0       add	w10, w10, w0
+4.     3     1.3    0.3    1.0       ldurb	w0, [x17, #-1]
+5.     3     5.3    0.0    0.0       add	w13, w13, w0
+6.     3     2.3    1.3    0.0       ldrb	w0, [x17], #4
+7.     3     5.7    0.0    0.0       add	w14, w14, w0
+8.     3     1.0    0.7    4.7       add	x12, x12, #4
+9.     3     2.0    0.0    3.7       cmp	x16, x12
+10.    3     3.0    0.0    2.7       b.ne	loop
+       33    3.2    0.3    1.2       <total>

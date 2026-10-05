@@ -1,0 +1,5 @@
+cpu	loop	width	cyc_per_iter	units	model	cyc_per_unit
+neoverse-n1	loop_neon	3	8.02	8	3ef7c6	1.002
+neoverse-n1	loop_plain	3	3.01	1	3ef7c6	3.007
+neoverse-n1	loop_scalar_sum	3	4.01	4	3ef7c6	1.002
+neoverse-n1	loop_udot	3	4.01	64	3ef7c6	0.063

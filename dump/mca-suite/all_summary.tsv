@@ -1,0 +1,12 @@
+apple-m4	loop_neon	6	11.02	8	726238	1.377
+apple-m4	loop_plain	6	4.51	1	726238	4.512
+apple-m4	loop_scalar_sum	6	5.01	4	726238	1.252
+apple-m4	loop_udot	6	2.01	64	726238	0.031
+neoverse-n1	loop_neon	3	8.02	8	3ef7c6	1.002
+neoverse-n1	loop_plain	3	3.01	1	3ef7c6	3.007
+neoverse-n1	loop_scalar_sum	3	4.01	4	3ef7c6	1.002
+neoverse-n1	loop_udot	3	4.01	64	3ef7c6	0.063
+neoverse-v1	loop_neon	8	6.02	8	50d60b	0.752
+neoverse-v1	loop_plain	8	2.01	1	50d60b	2.008
+neoverse-v1	loop_scalar_sum	8	1.86	4	50d60b	0.466
+neoverse-v1	loop_udot	8	1.51	64	50d60b	0.024

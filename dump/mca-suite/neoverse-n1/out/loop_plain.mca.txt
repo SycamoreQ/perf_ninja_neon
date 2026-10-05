@@ -1,0 +1,108 @@
+Iterations:        1000
+Instructions:      8000
+Total Cycles:      3007
+Total uOps:        9000
+
+Dispatch Width:    3
+uOps Per Cycle:    2.99
+IPC:               2.66
+Block RThroughput: 3.0
+
+
+No resource or data dependency bottlenecks discovered.
+
+
+Instruction Info:
+[1]: #uOps
+[2]: Latency
+[3]: RThroughput
+[4]: MayLoad
+[5]: MayStore
+[6]: HasSideEffects (U)
+
+[1]    [2]    [3]    [4]    [5]    [6]    Instructions:
+ 1      4     0.50    *                   ldrb	w17, [x16, x14]
+ 1      4     0.50    *                   ldrb	w0, [x13, x14]
+ 1      1     0.33                        sub	w10, w10, w17
+ 1      1     0.33                        add	w10, w10, w0
+ 2      1     0.50           *            strh	w10, [x15, x14, lsl #1]
+ 1      1     0.33                        add	x14, x14, #1
+ 1      1     0.33                        cmp	x14, x12
+ 1      1     1.00                        b.lo	loop
+
+
+Resources:
+[0]   - N1UnitB
+[1.0] - N1UnitD
+[1.1] - N1UnitD
+[2.0] - N1UnitL
+[2.1] - N1UnitL
+[3]   - N1UnitM
+[4.0] - N1UnitS
+[4.1] - N1UnitS
+[5]   - N1UnitV0
+[6]   - N1UnitV1
+
+
+Resource pressure per iteration:
+[0]    [1.0]  [1.1]  [2.0]  [2.1]  [3]    [4.0]  [4.1]  [5]    [6]    
+1.00   0.50   0.50   1.50   1.50   1.00   1.50   1.50    -      -     
+
+Resource pressure by instruction:
+[0]    [1.0]  [1.1]  [2.0]  [2.1]  [3]    [4.0]  [4.1]  [5]    [6]    Instructions:
+ -      -      -     0.50   0.50    -      -      -      -      -     ldrb	w17, [x16, x14]
+ -      -      -     0.50   0.50    -      -      -      -      -     ldrb	w0, [x13, x14]
+ -      -      -      -      -      -     0.50   0.50    -      -     sub	w10, w10, w17
+ -      -      -      -      -      -     0.50   0.50    -      -     add	w10, w10, w0
+ -     0.50   0.50   0.50   0.50    -      -      -      -      -     strh	w10, [x15, x14, lsl #1]
+ -      -      -      -      -      -     0.50   0.50    -      -     add	x14, x14, #1
+ -      -      -      -      -     1.00    -      -      -      -     cmp	x14, x12
+1.00    -      -      -      -      -      -      -      -      -     b.lo	loop
+
+
+Timeline view:
+                    012345
+Index     0123456789      
+
+[0,0]     DeeeeER   .    .   ldrb	w17, [x16, x14]
+[0,1]     DeeeeER   .    .   ldrb	w0, [x13, x14]
+[0,2]     D====eER  .    .   sub	w10, w10, w17
+[0,3]     .D====eER .    .   add	w10, w10, w0
+[0,4]     .D=====eER.    .   strh	w10, [x15, x14, lsl #1]
+[0,5]     . DeE----R.    .   add	x14, x14, #1
+[0,6]     . D=eE---R.    .   cmp	x14, x12
+[0,7]     . D==eE--R.    .   b.lo	loop
+[1,0]     .  DeeeeER.    .   ldrb	w17, [x16, x14]
+[1,1]     .  DeeeeER.    .   ldrb	w0, [x13, x14]
+[1,2]     .  D====eER    .   sub	w10, w10, w17
+[1,3]     .   D====eER   .   add	w10, w10, w0
+[1,4]     .   D=====eER  .   strh	w10, [x15, x14, lsl #1]
+[1,5]     .    DeE----R  .   add	x14, x14, #1
+[1,6]     .    D=eE---R  .   cmp	x14, x12
+[1,7]     .    D==eE--R  .   b.lo	loop
+[2,0]     .    .DeeeeER  .   ldrb	w17, [x16, x14]
+[2,1]     .    .D=eeeeER .   ldrb	w0, [x13, x14]
+[2,2]     .    .D====eER .   sub	w10, w10, w17
+[2,3]     .    . D====eER.   add	w10, w10, w0
+[2,4]     .    . D=====eER   strh	w10, [x15, x14, lsl #1]
+[2,5]     .    .  DeE----R   add	x14, x14, #1
+[2,6]     .    .  D=eE---R   cmp	x14, x12
+[2,7]     .    .  D==eE--R   b.lo	loop
+
+
+Average Wait times (based on the timeline view):
+[0]: Executions
+[1]: Average time spent waiting in a scheduler's queue
+[2]: Average time spent waiting in a scheduler's queue while ready
+[3]: Average time elapsed from WB until retire stage
+
+      [0]    [1]    [2]    [3]
+0.     3     1.0    0.3    0.0       ldrb	w17, [x16, x14]
+1.     3     1.3    0.7    0.0       ldrb	w0, [x13, x14]
+2.     3     5.0    0.0    0.0       sub	w10, w10, w17
+3.     3     5.0    0.0    0.0       add	w10, w10, w0
+4.     3     6.0    0.0    0.0       strh	w10, [x15, x14, lsl #1]
+5.     3     1.0    1.0    4.0       add	x14, x14, #1
+6.     3     2.0    0.0    3.0       cmp	x14, x12
+7.     3     3.0    0.0    2.0       b.lo	loop
+       24    3.0    0.3    1.1       <total>

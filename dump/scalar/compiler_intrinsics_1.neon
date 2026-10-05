@@ -1,0 +1,692 @@
+	.build_version macos, 26, 0	sdk_version 26, 5
+	.section	__TEXT,__text,regular,pure_instructions
+	.globl	__Z14imageSmoothingRKNSt3__16vectorIhNS_9allocatorIhEEEEhRNS0_ItNS1_ItEEEE ; -- Begin function _Z14imageSmoothingRKNSt3__16vectorIhNS_9allocatorIhEEEEhRNS0_ItNS1_ItEEEE
+	.p2align	2
+__Z14imageSmoothingRKNSt3__16vectorIhNS_9allocatorIhEEEEhRNS0_ItNS1_ItEEEE: ; @_Z14imageSmoothingRKNSt3__16vectorIhNS_9allocatorIhEEEEhRNS0_ItNS1_ItEEEE
+	.cfi_startproc
+; %bb.0:
+	stp	x28, x27, [sp, #-32]!           ; 16-byte Folded Spill
+	stp	x29, x30, [sp, #16]             ; 16-byte Folded Spill
+	add	x29, sp, #16
+	sub	sp, sp, #1200
+	.cfi_def_cfa w29, 16
+	.cfi_offset w30, -8
+	.cfi_offset w29, -16
+	.cfi_offset w27, -24
+	.cfi_offset w28, -32
+	add	x8, sp, #176
+	str	x8, [sp, #32]                   ; 8-byte Folded Spill
+	str	x0, [sp, #760]
+	strb	w1, [sp, #759]
+	str	x2, [sp, #744]
+	str	wzr, [sp, #740]
+	str	wzr, [sp, #736]
+	ldr	x0, [sp, #760]
+	bl	__ZNKSt3__16vectorIhNS_9allocatorIhEEE4sizeB9nqe210106Ev
+	mov	x8, x0
+	str	w8, [sp, #732]
+	str	wzr, [sp, #728]
+	b	LBB0_1
+LBB0_1:                                 ; =>This Inner Loop Header: Depth=1
+	ldr	w8, [sp, #728]
+	str	w8, [sp, #28]                   ; 4-byte Folded Spill
+	ldrb	w8, [sp, #759]
+	add	x1, sp, #724
+	str	w8, [sp, #724]
+	add	x0, sp, #732
+	bl	__ZNSt3__13minB9nqe210106IiEERKT_S3_S3_
+	ldr	w8, [sp, #28]                   ; 4-byte Folded Reload
+	ldr	w9, [x0]
+	subs	w8, w8, w9
+	b.ge	LBB0_4
+	b	LBB0_2
+LBB0_2:                                 ;   in Loop: Header=BB0_1 Depth=1
+	ldr	x0, [sp, #760]
+	ldrsw	x1, [sp, #728]
+	bl	__ZNKSt3__16vectorIhNS_9allocatorIhEEEixB9nqe210106Em
+	ldrb	w9, [x0]
+	ldr	w8, [sp, #736]
+	add	w8, w8, w9
+	str	w8, [sp, #736]
+	b	LBB0_3
+LBB0_3:                                 ;   in Loop: Header=BB0_1 Depth=1
+	ldr	w8, [sp, #728]
+	add	w8, w8, #1
+	str	w8, [sp, #728]
+	b	LBB0_1
+LBB0_4:
+	ldrb	w8, [sp, #759]
+	add	w8, w8, #1
+	add	x0, sp, #716
+	str	w8, [sp, #716]
+	ldr	w8, [sp, #732]
+	ldrb	w9, [sp, #759]
+	subs	w8, w8, w9
+	add	x1, sp, #712
+	str	w8, [sp, #712]
+	bl	__ZNSt3__13minB9nqe210106IiEERKT_S3_S3_
+	ldr	w8, [x0]
+	str	w8, [sp, #720]
+	str	wzr, [sp, #740]
+	b	LBB0_5
+LBB0_5:                                 ; =>This Inner Loop Header: Depth=1
+	ldr	w8, [sp, #740]
+	ldr	w9, [sp, #720]
+	subs	w8, w8, w9
+	b.ge	LBB0_8
+	b	LBB0_6
+LBB0_6:                                 ;   in Loop: Header=BB0_5 Depth=1
+	ldr	x0, [sp, #760]
+	ldr	w8, [sp, #740]
+	ldrb	w9, [sp, #759]
+	add	w9, w8, w9
+                                        ; implicit-def: $x8
+	mov	x8, x9
+	sxtw	x1, w8
+	bl	__ZNKSt3__16vectorIhNS_9allocatorIhEEEixB9nqe210106Em
+	ldrb	w9, [x0]
+	ldr	w8, [sp, #736]
+	add	w8, w8, w9
+	str	w8, [sp, #736]
+	ldr	w8, [sp, #736]
+	str	w8, [sp, #24]                   ; 4-byte Folded Spill
+	ldr	x0, [sp, #744]
+	ldrsw	x1, [sp, #740]
+	bl	__ZNSt3__16vectorItNS_9allocatorItEEEixB9nqe210106Em
+	ldr	w8, [sp, #24]                   ; 4-byte Folded Reload
+	strh	w8, [x0]
+	b	LBB0_7
+LBB0_7:                                 ;   in Loop: Header=BB0_5 Depth=1
+	ldr	w8, [sp, #740]
+	add	w8, w8, #1
+	str	w8, [sp, #740]
+	b	LBB0_5
+LBB0_8:
+	ldr	w8, [sp, #732]
+	ldrb	w9, [sp, #759]
+	subs	w8, w8, w9
+	str	w8, [sp, #720]
+	ldr	x0, [sp, #760]
+	bl	__ZNKSt3__16vectorIhNS_9allocatorIhEEE4dataB9nqe210106Ev
+	ldrsw	x8, [sp, #740]
+	add	x8, x0, x8
+	ldrb	w10, [sp, #759]
+                                        ; implicit-def: $x9
+	mov	x9, x10
+	sxtw	x9, w9
+	subs	x8, x8, x9
+	subs	x8, x8, #1
+	str	x8, [sp, #704]
+	ldr	x0, [sp, #760]
+	bl	__ZNKSt3__16vectorIhNS_9allocatorIhEEE4dataB9nqe210106Ev
+	ldrsw	x8, [sp, #740]
+	add	x8, x0, x8
+	ldrb	w9, [sp, #759]
+	add	x8, x8, w9, sxtw
+	str	x8, [sp, #696]
+	ldr	x0, [sp, #744]
+	bl	__ZNSt3__16vectorItNS_9allocatorItEEE4dataB9nqe210106Ev
+	ldr	x8, [sp, #32]                   ; 8-byte Folded Reload
+	ldrsw	x9, [sp, #740]
+	add	x9, x0, x9, lsl #1
+	str	x9, [sp, #688]
+	ldr	w10, [sp, #736]
+	add	x9, sp, #862
+	strh	w10, [sp, #862]
+	ldr	h0, [sp, #862]
+                                        ; kill: def $q0 killed $h0
+	ld1.h	{ v0 }[1], [x9]
+	ld1.h	{ v0 }[2], [x9]
+	ld1.h	{ v0 }[3], [x9]
+	ld1.h	{ v0 }[4], [x9]
+	ld1.h	{ v0 }[5], [x9]
+	ld1.h	{ v0 }[6], [x9]
+	ld1.h	{ v0 }[7], [x9]
+	str	q0, [x8, #640]
+	ldr	q0, [x8, #640]
+	str	q0, [x8, #656]
+	ldr	q0, [x8, #656]
+	str	q0, [x8, #496]
+	add	x9, sp, #814
+	strh	wzr, [sp, #814]
+	ldr	h0, [sp, #814]
+                                        ; kill: def $q0 killed $h0
+	ld1.h	{ v0 }[1], [x9]
+	ld1.h	{ v0 }[2], [x9]
+	ld1.h	{ v0 }[3], [x9]
+	ld1.h	{ v0 }[4], [x9]
+	ld1.h	{ v0 }[5], [x9]
+	ld1.h	{ v0 }[6], [x9]
+	ld1.h	{ v0 }[7], [x9]
+	str	q0, [x8, #592]
+	ldr	q0, [x8, #592]
+	str	q0, [x8, #608]
+	ldr	q0, [x8, #608]
+	str	q0, [x8, #480]
+	str	wzr, [sp, #652]
+	b	LBB0_9
+LBB0_9:                                 ; =>This Inner Loop Header: Depth=1
+	ldr	w8, [sp, #652]
+	add	w8, w8, #7
+	ldr	w9, [sp, #740]
+	add	w8, w8, w9
+	ldr	w9, [sp, #720]
+	subs	w8, w8, w9
+	b.ge	LBB0_12
+	b	LBB0_10
+LBB0_10:                                ;   in Loop: Header=BB0_9 Depth=1
+	ldr	x8, [sp, #32]                   ; 8-byte Folded Reload
+	ldr	x9, [sp, #704]
+	ldrsw	x10, [sp, #652]
+	ldr	d0, [x9, x10]
+	str	d0, [sp, #624]
+	ldr	d0, [sp, #624]
+	str	d0, [sp, #632]
+	ldr	d0, [sp, #632]
+	str	d0, [sp, #616]
+	ldr	d0, [sp, #616]
+	str	d0, [sp, #640]
+	ldr	x9, [sp, #696]
+	ldrsw	x10, [sp, #652]
+	ldr	d0, [x9, x10]
+	str	d0, [sp, #592]
+	ldr	d0, [sp, #592]
+	str	d0, [sp, #600]
+	ldr	d0, [sp, #600]
+	str	d0, [sp, #584]
+	ldr	d0, [sp, #584]
+	str	d0, [sp, #608]
+	ldr	d0, [sp, #640]
+	str	d0, [sp, #952]
+	ldr	d0, [sp, #952]
+	ushll.8h	v0, v0, #0
+	str	q0, [x8, #736]
+	ldr	q0, [x8, #736]
+	str	q0, [x8, #752]
+	ldr	q0, [x8, #752]
+	str	q0, [x8, #384]
+	ldr	d0, [sp, #608]
+	str	d0, [sp, #904]
+	ldr	d0, [sp, #904]
+	ushll.8h	v0, v0, #0
+	str	q0, [x8, #688]
+	ldr	q0, [x8, #688]
+	str	q0, [x8, #704]
+	ldr	q0, [x8, #704]
+	str	q0, [x8, #368]
+	ldr	q1, [x8, #368]
+	ldr	q0, [x8, #384]
+	str	q1, [x8, #816]
+	str	q0, [x8, #800]
+	ldr	q0, [x8, #816]
+	ldr	q1, [x8, #800]
+	sub.8h	v0, v0, v1
+	str	q0, [x8, #784]
+	ldr	q0, [x8, #784]
+	str	q0, [x8, #352]
+	ldr	q0, [x8, #480]
+	str	q0, [x8, #304]
+	ldr	q0, [x8, #352]
+	str	q0, [x8, #288]
+	ldr	q0, [x8, #304]
+	ldr	q1, [x8, #288]
+	ext.16b	v0, v0, v1, #14
+	str	q0, [x8, #272]
+	ldr	q0, [x8, #272]
+	str	q0, [x8, #320]
+	ldr	q0, [x8, #320]
+	str	q0, [x8, #256]
+	ldr	q0, [x8, #256]
+	str	q0, [x8, #336]
+	ldr	q1, [x8, #352]
+	ldr	q0, [x8, #336]
+	str	q1, [x8, #1008]
+	str	q0, [x8, #992]
+	ldr	q0, [x8, #1008]
+	ldr	q1, [x8, #992]
+	add.8h	v0, v0, v1
+	str	q0, [x8, #976]
+	ldr	q0, [x8, #976]
+	str	q0, [x8, #240]
+	ldr	q0, [x8, #480]
+	str	q0, [x8, #192]
+	ldr	q0, [x8, #240]
+	str	q0, [x8, #176]
+	ldr	q0, [x8, #192]
+	ldr	q1, [x8, #176]
+	ext.16b	v0, v0, v1, #12
+	str	q0, [x8, #160]
+	ldr	q0, [x8, #160]
+	str	q0, [x8, #208]
+	ldr	q0, [x8, #208]
+	str	q0, [x8, #144]
+	ldr	q0, [x8, #144]
+	str	q0, [x8, #224]
+	ldr	q1, [x8, #240]
+	ldr	q0, [x8, #224]
+	str	q1, [x8, #960]
+	str	q0, [x8, #944]
+	ldr	q0, [x8, #960]
+	ldr	q1, [x8, #944]
+	add.8h	v0, v0, v1
+	str	q0, [x8, #928]
+	ldr	q0, [x8, #928]
+	str	q0, [x8, #240]
+	ldr	q0, [x8, #480]
+	str	q0, [x8, #96]
+	ldr	q0, [x8, #240]
+	str	q0, [x8, #80]
+	ldr	q0, [x8, #96]
+	ldr	q1, [x8, #80]
+	ext.16b	v0, v0, v1, #8
+	str	q0, [x8, #64]
+	ldr	q0, [x8, #64]
+	str	q0, [x8, #112]
+	ldr	q0, [x8, #112]
+	str	q0, [x8, #48]
+	ldr	q0, [x8, #48]
+	str	q0, [x8, #128]
+	ldr	q1, [x8, #240]
+	ldr	q0, [x8, #128]
+	str	q1, [x8, #912]
+	str	q0, [x8, #896]
+	ldr	q0, [x8, #912]
+	ldr	q1, [x8, #896]
+	add.8h	v0, v0, v1
+	str	q0, [x8, #880]
+	ldr	q0, [x8, #880]
+	str	q0, [x8, #240]
+	ldr	q1, [x8, #240]
+	ldr	q0, [x8, #496]
+	str	q1, [x8, #864]
+	str	q0, [x8, #848]
+	ldr	q0, [x8, #864]
+	ldr	q1, [x8, #848]
+	add.8h	v0, v0, v1
+	str	q0, [x8, #832]
+	ldr	q0, [x8, #832]
+	str	q0, [x8, #32]
+	ldr	q0, [x8, #32]
+	str	q0, [x8, #16]
+	ldr	x9, [sp, #688]
+	ldrsw	x10, [sp, #652]
+	lsl	x10, x10, #1
+	ldr	q0, [x8, #16]
+	str	q0, [x9, x10]
+	ldr	q0, [x8, #32]
+	str	q0, [sp, #160]
+	ldr	q0, [sp, #160]
+	str	q0, [sp, #128]
+	ldr	q0, [sp, #128]
+	dup.8h	v0, v0[7]
+	str	q0, [sp, #112]
+	ldr	q0, [sp, #112]
+	str	q0, [sp, #144]
+	ldr	q0, [sp, #144]
+	str	q0, [sp, #96]
+	ldr	q0, [sp, #96]
+	str	q0, [x8]
+	ldr	q0, [x8]
+	str	q0, [sp, #80]
+	ldr	q0, [sp, #80]
+	str	q0, [x8, #496]
+	b	LBB0_11
+LBB0_11:                                ;   in Loop: Header=BB0_9 Depth=1
+	ldr	w8, [sp, #652]
+	add	w8, w8, #8
+	str	w8, [sp, #652]
+	b	LBB0_9
+LBB0_12:
+	ldr	w8, [sp, #652]
+	subs	w8, w8, #0
+	b.le	LBB0_14
+	b	LBB0_13
+LBB0_13:
+	ldr	x8, [sp, #32]                   ; 8-byte Folded Reload
+	ldr	q0, [x8, #496]
+	str	q0, [sp, #48]
+	ldr	q0, [sp, #48]
+                                        ; kill: def $h0 killed $h0 killed $q0
+	str	h0, [sp, #46]
+	ldrh	w8, [sp, #46]
+	strh	w8, [sp, #78]
+	ldrh	w8, [sp, #78]
+	strh	w8, [sp, #44]
+	ldrh	w8, [sp, #44]
+	str	w8, [sp, #736]
+	b	LBB0_14
+LBB0_14:
+	ldr	w9, [sp, #652]
+	ldr	w8, [sp, #740]
+	add	w8, w8, w9
+	str	w8, [sp, #740]
+	b	LBB0_15
+LBB0_15:                                ; =>This Inner Loop Header: Depth=1
+	ldr	w8, [sp, #740]
+	ldr	w9, [sp, #720]
+	subs	w8, w8, w9
+	b.ge	LBB0_18
+	b	LBB0_16
+LBB0_16:                                ;   in Loop: Header=BB0_15 Depth=1
+	ldr	x0, [sp, #760]
+	ldr	w8, [sp, #740]
+	ldrb	w9, [sp, #759]
+	subs	w8, w8, w9
+	subs	w9, w8, #1
+                                        ; implicit-def: $x8
+	mov	x8, x9
+	sxtw	x1, w8
+	bl	__ZNKSt3__16vectorIhNS_9allocatorIhEEEixB9nqe210106Em
+	ldrb	w9, [x0]
+	ldr	w8, [sp, #736]
+	subs	w8, w8, w9
+	str	w8, [sp, #736]
+	ldr	x0, [sp, #760]
+	ldr	w8, [sp, #740]
+	ldrb	w9, [sp, #759]
+	add	w9, w8, w9
+                                        ; implicit-def: $x8
+	mov	x8, x9
+	sxtw	x1, w8
+	bl	__ZNKSt3__16vectorIhNS_9allocatorIhEEEixB9nqe210106Em
+	ldrb	w9, [x0]
+	ldr	w8, [sp, #736]
+	add	w8, w8, w9
+	str	w8, [sp, #736]
+	ldr	w8, [sp, #736]
+	str	w8, [sp, #20]                   ; 4-byte Folded Spill
+	ldr	x0, [sp, #744]
+	ldrsw	x1, [sp, #740]
+	bl	__ZNSt3__16vectorItNS_9allocatorItEEEixB9nqe210106Em
+	ldr	w8, [sp, #20]                   ; 4-byte Folded Reload
+	strh	w8, [x0]
+	b	LBB0_17
+LBB0_17:                                ;   in Loop: Header=BB0_15 Depth=1
+	ldr	w8, [sp, #740]
+	add	w8, w8, #1
+	str	w8, [sp, #740]
+	b	LBB0_15
+LBB0_18:
+	ldrb	w8, [sp, #759]
+	add	w8, w8, #1
+	add	x0, sp, #40
+	str	w8, [sp, #40]
+	add	x1, sp, #732
+	bl	__ZNSt3__13minB9nqe210106IiEERKT_S3_S3_
+	ldr	w8, [x0]
+	str	w8, [sp, #720]
+	b	LBB0_19
+LBB0_19:                                ; =>This Inner Loop Header: Depth=1
+	ldr	w8, [sp, #740]
+	ldr	w9, [sp, #720]
+	subs	w8, w8, w9
+	b.ge	LBB0_22
+	b	LBB0_20
+LBB0_20:                                ;   in Loop: Header=BB0_19 Depth=1
+	ldr	w8, [sp, #736]
+	str	w8, [sp, #16]                   ; 4-byte Folded Spill
+	ldr	x0, [sp, #744]
+	ldrsw	x1, [sp, #740]
+	bl	__ZNSt3__16vectorItNS_9allocatorItEEEixB9nqe210106Em
+	ldr	w8, [sp, #16]                   ; 4-byte Folded Reload
+	strh	w8, [x0]
+	b	LBB0_21
+LBB0_21:                                ;   in Loop: Header=BB0_19 Depth=1
+	ldr	w8, [sp, #740]
+	add	w8, w8, #1
+	str	w8, [sp, #740]
+	b	LBB0_19
+LBB0_22:
+	b	LBB0_23
+LBB0_23:                                ; =>This Inner Loop Header: Depth=1
+	ldr	w8, [sp, #740]
+	ldr	w9, [sp, #732]
+	subs	w8, w8, w9
+	b.ge	LBB0_26
+	b	LBB0_24
+LBB0_24:                                ;   in Loop: Header=BB0_23 Depth=1
+	ldr	x0, [sp, #760]
+	ldr	w8, [sp, #740]
+	ldrb	w9, [sp, #759]
+	subs	w8, w8, w9
+	subs	w9, w8, #1
+                                        ; implicit-def: $x8
+	mov	x8, x9
+	sxtw	x1, w8
+	bl	__ZNKSt3__16vectorIhNS_9allocatorIhEEEixB9nqe210106Em
+	ldrb	w9, [x0]
+	ldr	w8, [sp, #736]
+	subs	w8, w8, w9
+	str	w8, [sp, #736]
+	ldr	w8, [sp, #736]
+	str	w8, [sp, #12]                   ; 4-byte Folded Spill
+	ldr	x0, [sp, #744]
+	ldrsw	x1, [sp, #740]
+	bl	__ZNSt3__16vectorItNS_9allocatorItEEEixB9nqe210106Em
+	ldr	w8, [sp, #12]                   ; 4-byte Folded Reload
+	strh	w8, [x0]
+	b	LBB0_25
+LBB0_25:                                ;   in Loop: Header=BB0_23 Depth=1
+	ldr	w8, [sp, #740]
+	add	w8, w8, #1
+	str	w8, [sp, #740]
+	b	LBB0_23
+LBB0_26:
+	add	sp, sp, #1200
+	ldp	x29, x30, [sp, #16]             ; 16-byte Folded Reload
+	ldp	x28, x27, [sp], #32             ; 16-byte Folded Reload
+	ret
+	.cfi_endproc
+                                        ; -- End function
+	.private_extern	__ZNKSt3__16vectorIhNS_9allocatorIhEEE4sizeB9nqe210106Ev ; -- Begin function _ZNKSt3__16vectorIhNS_9allocatorIhEEE4sizeB9nqe210106Ev
+	.globl	__ZNKSt3__16vectorIhNS_9allocatorIhEEE4sizeB9nqe210106Ev
+	.weak_definition	__ZNKSt3__16vectorIhNS_9allocatorIhEEE4sizeB9nqe210106Ev
+	.p2align	2
+__ZNKSt3__16vectorIhNS_9allocatorIhEEE4sizeB9nqe210106Ev: ; @_ZNKSt3__16vectorIhNS_9allocatorIhEEE4sizeB9nqe210106Ev
+	.cfi_startproc
+; %bb.0:
+	sub	sp, sp, #16
+	.cfi_def_cfa_offset 16
+	str	x0, [sp, #8]
+	ldr	x9, [sp, #8]
+	ldr	x8, [x9, #8]
+	ldr	x9, [x9]
+	subs	x0, x8, x9
+	add	sp, sp, #16
+	ret
+	.cfi_endproc
+                                        ; -- End function
+	.private_extern	__ZNSt3__13minB9nqe210106IiEERKT_S3_S3_ ; -- Begin function _ZNSt3__13minB9nqe210106IiEERKT_S3_S3_
+	.globl	__ZNSt3__13minB9nqe210106IiEERKT_S3_S3_
+	.weak_definition	__ZNSt3__13minB9nqe210106IiEERKT_S3_S3_
+	.p2align	2
+__ZNSt3__13minB9nqe210106IiEERKT_S3_S3_: ; @_ZNSt3__13minB9nqe210106IiEERKT_S3_S3_
+	.cfi_startproc
+; %bb.0:
+	sub	sp, sp, #48
+	stp	x29, x30, [sp, #32]             ; 16-byte Folded Spill
+	add	x29, sp, #32
+	.cfi_def_cfa w29, 16
+	.cfi_offset w30, -8
+	.cfi_offset w29, -16
+	stur	x0, [x29, #-8]
+	str	x1, [sp, #16]
+	ldur	x0, [x29, #-8]
+	ldr	x1, [sp, #16]
+	bl	__ZNSt3__13minB9nqe210106IiNS_6__lessIvvEEEERKT_S5_S5_T0_
+	ldp	x29, x30, [sp, #32]             ; 16-byte Folded Reload
+	add	sp, sp, #48
+	ret
+	.cfi_endproc
+                                        ; -- End function
+	.private_extern	__ZNKSt3__16vectorIhNS_9allocatorIhEEEixB9nqe210106Em ; -- Begin function _ZNKSt3__16vectorIhNS_9allocatorIhEEEixB9nqe210106Em
+	.globl	__ZNKSt3__16vectorIhNS_9allocatorIhEEEixB9nqe210106Em
+	.weak_definition	__ZNKSt3__16vectorIhNS_9allocatorIhEEEixB9nqe210106Em
+	.p2align	2
+__ZNKSt3__16vectorIhNS_9allocatorIhEEEixB9nqe210106Em: ; @_ZNKSt3__16vectorIhNS_9allocatorIhEEEixB9nqe210106Em
+	.cfi_startproc
+; %bb.0:
+	sub	sp, sp, #16
+	.cfi_def_cfa_offset 16
+	str	x0, [sp, #8]
+	str	x1, [sp]
+	ldr	x8, [sp, #8]
+	ldr	x8, [x8]
+	ldr	x9, [sp]
+	add	x0, x8, x9
+	add	sp, sp, #16
+	ret
+	.cfi_endproc
+                                        ; -- End function
+	.private_extern	__ZNSt3__16vectorItNS_9allocatorItEEEixB9nqe210106Em ; -- Begin function _ZNSt3__16vectorItNS_9allocatorItEEEixB9nqe210106Em
+	.globl	__ZNSt3__16vectorItNS_9allocatorItEEEixB9nqe210106Em
+	.weak_definition	__ZNSt3__16vectorItNS_9allocatorItEEEixB9nqe210106Em
+	.p2align	2
+__ZNSt3__16vectorItNS_9allocatorItEEEixB9nqe210106Em: ; @_ZNSt3__16vectorItNS_9allocatorItEEEixB9nqe210106Em
+	.cfi_startproc
+; %bb.0:
+	sub	sp, sp, #16
+	.cfi_def_cfa_offset 16
+	str	x0, [sp, #8]
+	str	x1, [sp]
+	ldr	x8, [sp, #8]
+	ldr	x8, [x8]
+	ldr	x9, [sp]
+	add	x0, x8, x9, lsl #1
+	add	sp, sp, #16
+	ret
+	.cfi_endproc
+                                        ; -- End function
+	.private_extern	__ZNKSt3__16vectorIhNS_9allocatorIhEEE4dataB9nqe210106Ev ; -- Begin function _ZNKSt3__16vectorIhNS_9allocatorIhEEE4dataB9nqe210106Ev
+	.globl	__ZNKSt3__16vectorIhNS_9allocatorIhEEE4dataB9nqe210106Ev
+	.weak_definition	__ZNKSt3__16vectorIhNS_9allocatorIhEEE4dataB9nqe210106Ev
+	.p2align	2
+__ZNKSt3__16vectorIhNS_9allocatorIhEEE4dataB9nqe210106Ev: ; @_ZNKSt3__16vectorIhNS_9allocatorIhEEE4dataB9nqe210106Ev
+	.cfi_startproc
+; %bb.0:
+	sub	sp, sp, #32
+	stp	x29, x30, [sp, #16]             ; 16-byte Folded Spill
+	add	x29, sp, #16
+	.cfi_def_cfa w29, 16
+	.cfi_offset w30, -8
+	.cfi_offset w29, -16
+	str	x0, [sp, #8]
+	ldr	x8, [sp, #8]
+	ldr	x0, [x8]
+	bl	__ZNSt3__112__to_addressB9nqe210106IhEEPT_S2_
+	ldp	x29, x30, [sp, #16]             ; 16-byte Folded Reload
+	add	sp, sp, #32
+	ret
+	.cfi_endproc
+                                        ; -- End function
+	.private_extern	__ZNSt3__16vectorItNS_9allocatorItEEE4dataB9nqe210106Ev ; -- Begin function _ZNSt3__16vectorItNS_9allocatorItEEE4dataB9nqe210106Ev
+	.globl	__ZNSt3__16vectorItNS_9allocatorItEEE4dataB9nqe210106Ev
+	.weak_definition	__ZNSt3__16vectorItNS_9allocatorItEEE4dataB9nqe210106Ev
+	.p2align	2
+__ZNSt3__16vectorItNS_9allocatorItEEE4dataB9nqe210106Ev: ; @_ZNSt3__16vectorItNS_9allocatorItEEE4dataB9nqe210106Ev
+	.cfi_startproc
+; %bb.0:
+	sub	sp, sp, #32
+	stp	x29, x30, [sp, #16]             ; 16-byte Folded Spill
+	add	x29, sp, #16
+	.cfi_def_cfa w29, 16
+	.cfi_offset w30, -8
+	.cfi_offset w29, -16
+	str	x0, [sp, #8]
+	ldr	x8, [sp, #8]
+	ldr	x0, [x8]
+	bl	__ZNSt3__112__to_addressB9nqe210106ItEEPT_S2_
+	ldp	x29, x30, [sp, #16]             ; 16-byte Folded Reload
+	add	sp, sp, #32
+	ret
+	.cfi_endproc
+                                        ; -- End function
+	.private_extern	__ZNSt3__13minB9nqe210106IiNS_6__lessIvvEEEERKT_S5_S5_T0_ ; -- Begin function _ZNSt3__13minB9nqe210106IiNS_6__lessIvvEEEERKT_S5_S5_T0_
+	.globl	__ZNSt3__13minB9nqe210106IiNS_6__lessIvvEEEERKT_S5_S5_T0_
+	.weak_definition	__ZNSt3__13minB9nqe210106IiNS_6__lessIvvEEEERKT_S5_S5_T0_
+	.p2align	2
+__ZNSt3__13minB9nqe210106IiNS_6__lessIvvEEEERKT_S5_S5_T0_: ; @_ZNSt3__13minB9nqe210106IiNS_6__lessIvvEEEERKT_S5_S5_T0_
+	.cfi_startproc
+; %bb.0:
+	sub	sp, sp, #48
+	stp	x29, x30, [sp, #32]             ; 16-byte Folded Spill
+	add	x29, sp, #32
+	.cfi_def_cfa w29, 16
+	.cfi_offset w30, -8
+	.cfi_offset w29, -16
+	str	x0, [sp, #16]
+	str	x1, [sp, #8]
+	ldr	x1, [sp, #8]
+	ldr	x2, [sp, #16]
+	sub	x0, x29, #1
+	bl	__ZNKSt3__16__lessIvvEclB9nqe210106IiiEEbRKT_RKT0_
+	tbz	w0, #0, LBB7_2
+	b	LBB7_1
+LBB7_1:
+	ldr	x8, [sp, #8]
+	str	x8, [sp]                        ; 8-byte Folded Spill
+	b	LBB7_3
+LBB7_2:
+	ldr	x8, [sp, #16]
+	str	x8, [sp]                        ; 8-byte Folded Spill
+	b	LBB7_3
+LBB7_3:
+	ldr	x0, [sp]                        ; 8-byte Folded Reload
+	ldp	x29, x30, [sp, #32]             ; 16-byte Folded Reload
+	add	sp, sp, #48
+	ret
+	.cfi_endproc
+                                        ; -- End function
+	.private_extern	__ZNKSt3__16__lessIvvEclB9nqe210106IiiEEbRKT_RKT0_ ; -- Begin function _ZNKSt3__16__lessIvvEclB9nqe210106IiiEEbRKT_RKT0_
+	.globl	__ZNKSt3__16__lessIvvEclB9nqe210106IiiEEbRKT_RKT0_
+	.weak_definition	__ZNKSt3__16__lessIvvEclB9nqe210106IiiEEbRKT_RKT0_
+	.p2align	2
+__ZNKSt3__16__lessIvvEclB9nqe210106IiiEEbRKT_RKT0_: ; @_ZNKSt3__16__lessIvvEclB9nqe210106IiiEEbRKT_RKT0_
+	.cfi_startproc
+; %bb.0:
+	sub	sp, sp, #32
+	.cfi_def_cfa_offset 32
+	str	x0, [sp, #24]
+	str	x1, [sp, #16]
+	str	x2, [sp, #8]
+	ldr	x8, [sp, #16]
+	ldr	w8, [x8]
+	ldr	x9, [sp, #8]
+	ldr	w9, [x9]
+	subs	w8, w8, w9
+	cset	w0, lt
+	add	sp, sp, #32
+	ret
+	.cfi_endproc
+                                        ; -- End function
+	.private_extern	__ZNSt3__112__to_addressB9nqe210106IhEEPT_S2_ ; -- Begin function _ZNSt3__112__to_addressB9nqe210106IhEEPT_S2_
+	.globl	__ZNSt3__112__to_addressB9nqe210106IhEEPT_S2_
+	.weak_definition	__ZNSt3__112__to_addressB9nqe210106IhEEPT_S2_
+	.p2align	2
+__ZNSt3__112__to_addressB9nqe210106IhEEPT_S2_: ; @_ZNSt3__112__to_addressB9nqe210106IhEEPT_S2_
+	.cfi_startproc
+; %bb.0:
+	sub	sp, sp, #16
+	.cfi_def_cfa_offset 16
+	str	x0, [sp, #8]
+	ldr	x0, [sp, #8]
+	add	sp, sp, #16
+	ret
+	.cfi_endproc
+                                        ; -- End function
+	.private_extern	__ZNSt3__112__to_addressB9nqe210106ItEEPT_S2_ ; -- Begin function _ZNSt3__112__to_addressB9nqe210106ItEEPT_S2_
+	.globl	__ZNSt3__112__to_addressB9nqe210106ItEEPT_S2_
+	.weak_definition	__ZNSt3__112__to_addressB9nqe210106ItEEPT_S2_
+	.p2align	2
+__ZNSt3__112__to_addressB9nqe210106ItEEPT_S2_: ; @_ZNSt3__112__to_addressB9nqe210106ItEEPT_S2_
+	.cfi_startproc
+; %bb.0:
+	sub	sp, sp, #16
+	.cfi_def_cfa_offset 16
+	str	x0, [sp, #8]
+	ldr	x0, [sp, #8]
+	add	sp, sp, #16
+	ret
+	.cfi_endproc
+                                        ; -- End function
+.subsections_via_symbols

@@ -1,0 +1,44 @@
+#!/bin/sh
+# Generated. CPU model is baked in below. More iterations:  ITER=5000 ./run_mca.sh
+CPU=__CPU__
+ITER=${ITER:-1000}
+HERE=$(cd "$(dirname "$0")" && pwd)
+LOOPS="$HERE/../common/loops"
+OUT="$HERE/out"
+mkdir -p "$OUT"
+TSV="$OUT/summary.tsv"
+printf "cpu\tloop\twidth\tcyc_per_iter\tunits\tmodel\tcyc_per_unit\n" > "$TSV"
+
+# loop name -> units per iteration, unit, builds containing the loop
+meta() {
+  case $1 in
+    loop_neon)       echo "8 outputs intrinsics" ;;
+    loop_plain)      echo "1 outputs scalar+autovec" ;;
+    loop_scalar_sum) echo "4 bytes scalar-only" ;;
+    loop_udot)       echo "64 bytes autovec+intrinsics" ;;
+  esac
+}
+fp_hash() { (shasum 2>/dev/null || sha1sum) | cut -c1-6; }
+
+printf "%-12s %-16s %5s %9s %6s %-7s %10s  %s\n" cpu loop width cyc/iter units model cyc/unit "(unit, builds)"
+for f in loop_neon loop_plain loop_scalar_sum loop_udot; do
+  set -- $(meta "$f"); units=$1; per=$2; builds=$3
+  src="$LOOPS/$f.s"; out="$OUT/$f.mca.txt"
+  if [ ! -f "$src" ]; then
+    printf "%-12s %-16s n/a (missing %s)\n" "$CPU" "$f" "$src"; continue
+  fi
+  if llvm-mca -mtriple=arm64-apple-macos -mcpu="$CPU" --iterations="$ITER" \
+       --bottleneck-analysis --timeline --timeline-max-iterations=3 \
+       "$src" > "$out" 2>&1; then
+    cyc=$(awk '/^Total Cycles:/{print $3}' "$out")
+    it=$(awk '/^Iterations:/{print $2}' "$out")
+    w=$(awk '/^Dispatch Width:/{print $3}' "$out")
+    fp=$(sed -n '/^Resources:/,/^$/p' "$out" | fp_hash)
+    cpi=$(awk -v c="$cyc" -v i="$it" 'BEGIN{printf "%.2f", c/i}')
+    cpu_=$(awk -v c="$cyc" -v i="$it" -v u="$units" 'BEGIN{printf "%.3f", c/i/u}')
+    printf "%-12s %-16s %5s %9s %6s %-7s %10s  %s, %s\n" "$CPU" "$f" "$w" "$cpi" "$units" "$fp" "$cpu_" "$per" "$builds"
+    printf "%s\t%s\t%s\t%s\t%s\t%s\t%s\n" "$CPU" "$f" "$w" "$cpi" "$units" "$fp" "$cpu_" >> "$TSV"
+  else
+    printf "%-12s %-16s FAILED, see %s\n" "$CPU" "$f" "$out"
+  fi
+done

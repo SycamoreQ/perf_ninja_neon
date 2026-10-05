@@ -1,0 +1,5 @@
+cpu	loop	width	cyc_per_iter	units	model	cyc_per_unit
+apple-m4	loop_neon	6	11.02	8	726238	1.377
+apple-m4	loop_plain	6	4.51	1	726238	4.512
+apple-m4	loop_scalar_sum	6	5.01	4	726238	1.252
+apple-m4	loop_udot	6	2.01	64	726238	0.031
